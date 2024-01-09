@@ -19,12 +19,12 @@ class _ExpenseState extends State<Expenses> {
         amount: 5000,
         date: DateTime.now(),
         category: Category.food),
-        Expense(
+    Expense(
         title: 'hello',
         amount: 5000,
         date: DateTime.now(),
         category: Category.food),
-          Expense(
+    Expense(
         title: 'hello',
         amount: 5000,
         date: DateTime.now(),
@@ -34,7 +34,7 @@ class _ExpenseState extends State<Expenses> {
         amount: 557,
         date: DateTime.now(),
         category: Category.grocery),
-        Expense(
+    Expense(
         title: 'hello',
         amount: 557,
         date: DateTime.now(),
@@ -61,13 +61,36 @@ class _ExpenseState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
+    final expenseIndex = _registerdeExpenses.indexOf(expense);
     setState(() {
       _registerdeExpenses.remove(expense);
     });
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      duration: const Duration(seconds: 3),
+      content: const Text('Expense deleted.'),
+      action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _registerdeExpenses.insert(expenseIndex, expense);
+            });
+          }),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('No expense found. Start adding some !'),
+    );
+
+    if (_registerdeExpenses.isNotEmpty) {
+      mainContent = Expenseslist(
+        expenses: _registerdeExpenses,
+        onRemoveExpense: _removeExpense,
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Expense Tracker'),
@@ -80,14 +103,7 @@ class _ExpenseState extends State<Expenses> {
         ],
       ),
       body: Column(
-        children: [
-          const Text('ghj'),
-          Expanded(
-              child: Expenseslist(
-            expenses: _registerdeExpenses,
-            onRemoveExpense: _removeExpense,
-          ))
-        ],
+        children: [const Text('ghj'), Expanded(child: mainContent)],
       ),
     );
   }
