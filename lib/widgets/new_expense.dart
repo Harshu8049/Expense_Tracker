@@ -42,7 +42,8 @@ class _NewExpenseState extends State<NewExpense> {
 
   void _submitExpenseData() {
     final enteredAmount = double.tryParse(_amountController
-        .text); // tryParse('Hello') => null. tryParse(1.12) => 1.2
+        .text); 
+        // tryParse('Hello') => null. tryParse(1.12) => 1.2
     final enteredTitle = _titleController.text.trim();
     final amountIsInvlaid = enteredAmount == null ||
         enteredAmount <=

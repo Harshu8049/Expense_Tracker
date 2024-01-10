@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
-
   @override
   State<StatefulWidget> createState() {
     return _ExpenseState();
@@ -19,21 +18,6 @@ class _ExpenseState extends State<Expenses> {
         amount: 5000,
         date: DateTime.now(),
         category: Category.food),
-    Expense(
-        title: 'hello',
-        amount: 5000,
-        date: DateTime.now(),
-        category: Category.food),
-    Expense(
-        title: 'hello',
-        amount: 5000,
-        date: DateTime.now(),
-        category: Category.food),
-    Expense(
-        title: 'hello',
-        amount: 557,
-        date: DateTime.now(),
-        category: Category.grocery),
     Expense(
         title: 'hello',
         amount: 557,
@@ -65,6 +49,7 @@ class _ExpenseState extends State<Expenses> {
     setState(() {
       _registerdeExpenses.remove(expense);
     });
+    ScaffoldMessenger.of(context).removeCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: const Duration(seconds: 3),
       content: const Text('Expense deleted.'),
