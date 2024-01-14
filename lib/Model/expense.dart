@@ -6,12 +6,14 @@ final formatter = DateFormat.yMd();
 
 const uuid = Uuid();
 
-enum Category { food, grocery, cloth , movie , recharge }
+enum Category { food, grocery, cloth, movie, recharge }
 
 const categoryIcons = {
-  Category.food: Icons.lunch_dining,
-  Category.cloth: Icons.dialer_sip_sharp,
-  Category.grocery: Icons.access_alarm_sharp
+  Category.food: Icons.food_bank,
+  Category.grocery: Icons.access_alarm_sharp,
+  Category.cloth: Icons.shopping_bag_outlined,
+  Category.movie: Icons.movie_filter,
+  Category.recharge: Icons.receipt_sharp,
 };
 
 class Expense {

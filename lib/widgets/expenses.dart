@@ -66,7 +66,8 @@ class _ExpenseState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     Widget mainContent = const Center(
-      child: Text('No expense found. Start adding some !'),
+      child: Text('No expense found. Start adding some !',
+          style: TextStyle(color: Colors.black)),
     );
 
     if (_registerdeExpenses.isNotEmpty) {
@@ -78,10 +79,15 @@ class _ExpenseState extends State<Expenses> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Expense Tracker'),
+        title: const Text('Flutter Expense Tracker',
+            style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
-              onPressed: _openAddExpenseOverlay, icon: const Icon(Icons.add)),
+              onPressed: _openAddExpenseOverlay,
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              )),
           const SizedBox(
             width: 20,
           )

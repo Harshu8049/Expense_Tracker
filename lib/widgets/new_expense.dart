@@ -41,9 +41,8 @@ class _NewExpenseState extends State<NewExpense> {
   }
 
   void _submitExpenseData() {
-    final enteredAmount = double.tryParse(_amountController
-        .text); 
-        // tryParse('Hello') => null. tryParse(1.12) => 1.2
+    final enteredAmount = double.tryParse(_amountController.text);
+    // tryParse('Hello') => null. tryParse(1.12) => 1.2
     final enteredTitle = _titleController.text.trim();
     final amountIsInvlaid = enteredAmount == null ||
         enteredAmount <=
@@ -140,6 +139,7 @@ class _NewExpenseState extends State<NewExpense> {
                             value: category,
                             child: Text(
                               category.name.toUpperCase(),
+                              style: TextStyle(color: Colors.black),
                             ),
                           ))
                       .toList(),
