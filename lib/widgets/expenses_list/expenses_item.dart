@@ -12,9 +12,12 @@ class ExpenseItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
-            
+            Text(
+              expense.title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             const SizedBox(
               width: 4,
             ),
@@ -22,7 +25,7 @@ class ExpenseItem extends StatelessWidget {
               children: [
                 Text(
                   '\$${expense.amount.toStringAsFixed(2)}',
-                ),  //12.34445 is displayes as 12.3
+                ), //12.34445 is displayes as 12.3
                 const Spacer(),
                 Row(children: [
                   Icon(categoryIcons[expense.category]),
