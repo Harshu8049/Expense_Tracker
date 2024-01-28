@@ -115,7 +115,7 @@ class _NewExpenseState extends State<NewExpense> {
                       const Text('No date selected')
                     else
                       Text(formatter.format(
-                          _selectedDate!)), //! this use here because dart we forcely say to assume that this is not null
+                          _selectedDate!)), //    ! this use here because dart we forcely say to assume that this is not null
                     IconButton(
                       onPressed: _presentDatePicker,
                       icon: const Icon(
@@ -127,6 +127,7 @@ class _NewExpenseState extends State<NewExpense> {
               )
             ],
           ),
+          
           const SizedBox(
             height: 16,
           ),
@@ -139,7 +140,7 @@ class _NewExpenseState extends State<NewExpense> {
                             value: category,
                             child: Text(
                               category.name.toUpperCase(),
-                              style: TextStyle(color: Colors.black),
+                              style: const TextStyle(color: Colors.black),
                             ),
                           ))
                       .toList(),

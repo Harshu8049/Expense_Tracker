@@ -13,21 +13,6 @@ class Expenses extends StatefulWidget {
 
 class _ExpenseState extends State<Expenses> {
   final List<Expense> _registerdeExpenses = [
-    Expense(
-        title: 'hello',
-        amount: 5000,
-        date: DateTime.now(),
-        category: Category.food),
-    Expense(
-        title: 'hello',
-        amount: 557,
-        date: DateTime.now(),
-        category: Category.grocery),
-    Expense(
-        title: 'hello',
-        amount: 678,
-        date: DateTime.now(),
-        category: Category.cloth),
   ];
 
   void _openAddExpenseOverlay() {
